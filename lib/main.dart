@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:proxy_provider_ex/proxy_create_update.dart';
+
 import 'package:proxy_provider_ex/proxy_update.dart';
 
 void main() {
@@ -33,19 +35,43 @@ class MyHomePage extends StatelessWidget {
       child: ListView(
         shrinkWrap: true,
         children: [
-          ElevatedButton(
-              child: const Text(
-                'ProxyProvider\nUpdate',
-                style: TextStyle(fontSize: 20.0),
-                textAlign: TextAlign.center,
-              ),
-              onPressed: () => Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (_) => const ProxyProvUpdate(),
-                  ))),
+          ProxyProviderButton(
+              title: 'ProxyProvider\nUpdate',
+              builder: (BuildContext _) => const ProxyProvUpdate()),
+          const SizedBox(
+            height: 20.0,
+          ),
+          ProxyProviderButton(
+              title: 'ProxyProvider\nCreate & Update',
+              builder: (BuildContext _) => const ProxyProvCreateUpdate()),
         ],
       ),
     )));
+  }
+}
+
+class ProxyProviderButton extends StatelessWidget {
+  final String title;
+  final Widget Function(BuildContext) builder;
+
+  const ProxyProviderButton({
+    Key? key,
+    required this.title,
+    required this.builder,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return ElevatedButton(
+        child: Text(
+          title,
+          style: const TextStyle(fontSize: 20.0),
+          textAlign: TextAlign.center,
+        ),
+        onPressed: () => Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: builder,
+            )));
   }
 }
