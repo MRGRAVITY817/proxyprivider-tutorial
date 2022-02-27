@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:proxy_provider_ex/chgnotiprov_chgnotiproxyprov.dart';
+import 'package:proxy_provider_ex/chgnotiprov_proxyprov.dart';
 
 import 'package:proxy_provider_ex/proxy_create_update.dart';
 import 'package:proxy_provider_ex/proxy_proxyprov.dart';
@@ -56,7 +58,13 @@ class MyHomePage extends StatelessWidget {
           ),
           ProxyProviderButton(
               title: 'ChangeNotify\n(Proxy)Provider',
-              builder: (BuildContext _) => const ProxyProv0and1()),
+              builder: (BuildContext _) => const ChgNotiProvChgNotiProxyProv()),
+          const SizedBox(
+            height: 20.0,
+          ),
+          ProxyProviderButton(
+              title: 'ChangeNotifyProvider\n with ProxyProvider',
+              builder: (BuildContext _) => const ChgNotiProvProxyPrv()),
         ],
       ),
     )));
