@@ -51,6 +51,12 @@ class MyHomePage extends StatelessWidget {
           ProxyProviderButton(
               title: 'ProxyProvider\n0 and 1',
               builder: (BuildContext _) => const ProxyProv0and1()),
+          const SizedBox(
+            height: 20.0,
+          ),
+          ProxyProviderButton(
+              title: 'ChangeNotify\n(Proxy)Provider',
+              builder: (BuildContext _) => const ProxyProv0and1()),
         ],
       ),
     )));
